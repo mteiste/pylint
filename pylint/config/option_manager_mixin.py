@@ -293,8 +293,8 @@ class OptionsManagerMixIn:
                 for sect, values in list(parser._sections.items()):
                     if sect.startswith("pylint."):
                         sect = sect[len("pylint.") :]
-                    if not sect.isupper() and values:
-                        parser._sections[sect.upper()] = values
+                    if sect.isupper() and values:
+                        parser._sections[sect] = values
         if not verbose:
             return
         if use_config_file:
